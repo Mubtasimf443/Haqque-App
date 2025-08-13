@@ -3,12 +3,12 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-const Books = () => {
+const SearchScreen= () => {
   return (
-    <View>
-        <Text> Books </Text>
+    <View >
+        <Text> Search </Text>
     </View>
   )
 }
 
-export default Books
+export default SearchScreen

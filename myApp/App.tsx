@@ -1,43 +1,74 @@
 /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ ﷺ InshaAllah */
 
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import HomeScreen from './screans/HomeScreen';
+import SearchScreen from './screans/SearchScreen';
+import ProfileScreen from './screans/ProfileScreen';
+import { createStaticNavigation } from '@react-navigation/native';
+import {MaterialIcons  , FontAwesome} from '@expo/vector-icons'
+import {
+  SafeAreaProvider,
+  initialWindowMetrics,
+} from 'react-native-safe-area-context';
+import ExploreScreen from './screans/ExploreScreen';
+import CustomHeader from './components/ui/custom/CustomHeader';
 
-import { createNavigatorFactory, createStaticNavigation } from '@react-navigation/native';
-import Books from './pages/Search';
-import { SafeAreaView, Text, View } from 'react-native';
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
-
-
-const RootStack = createNativeStackNavigator({
-  initialRouteName: 'Home',
+const Tabs = createBottomTabNavigator({
+  initialRouteName : "Home",
   screens: {
     Home: {
-      screen : HomeScreen ,
+      screen : HomeScreen,
       options : {
+        tabBarIcon :() => <MaterialIcons name={"home"} size={25} />,
         headerShown : false
       }
     },
-    Books : {
-      screen : Books,
-      options :{
+    Explore: {
+      screen : ExploreScreen,
+      options : {
+        tabBarIcon :() => <MaterialIcons name={"explore"} size={25} />,
+        headerShown : false
+      }
+    },
+    Search: {
+      screen : SearchScreen , 
+      options : {
+        tabBarIcon :() => <MaterialIcons size={25} name={"search"} />,
+        headerShown : false
+      }
+    },
+    Profile : {
+      screen : ProfileScreen,
+      options : {
+        tabBarIcon :() => <FontAwesome size={25} name='user' />,
         headerShown : false
       }
     }
-  },
-  
+  }
 });
 
-const Navigation = createStaticNavigation(RootStack);
+const rootStack = createNativeStackNavigator({
+  screens : {
+    Main : {
+      screen : Tabs,
+      options : {
+        headerShown : true,
+        header :() => (<CustomHeader></CustomHeader>)
+      }
+    }
+  }
+});
 
-export default function App() {
+const Navigation = createStaticNavigation(rootStack)
+
+const App = () => {
   return (
+    <SafeAreaProvider>
       <Navigation />
+    </SafeAreaProvider>
   );
 }
+export default App;
+
