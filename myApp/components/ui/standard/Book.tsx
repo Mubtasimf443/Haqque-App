@@ -20,7 +20,6 @@ const Book: FC<Props> = ({ title, views, writter, imageUri, read }) => {
     <Card style={styles.container}>
       <Card.Cover
         source={{ uri: imageUri || "https://img.icons8.com/ios/100/book--v2.png" }}
-        
       />
       <Card.Title
         title={title}
@@ -48,7 +47,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#ffffff",
     maxWidth: 'auto',
-    color: "#000000"
+    color: "#000000",
+    width : 235
   },
   txt : {
     color : "Black",

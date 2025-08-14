@@ -20,7 +20,7 @@ export default CustomHeader;
 const styles = StyleSheet.create({
 
   container: {
-    width: Dimensions.get('screen').width,
+  
     height : 60,
     backgroundColor : "#006A0D",
     display : 'flex',

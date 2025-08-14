@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, Pressable, Button, TouchableOpacity } from 'rea
 import Container from '../components/ui/standard/Container';
 import Book from '../components/ui/standard/Book';
 import BookList from '../components/ui/custom/BookList';
+import { books } from '../components/data/Books';
 
 interface Props {
 
@@ -36,7 +37,7 @@ const HomeScreen = ({ }: Props) => {
     <Container >
        {
         islamicStudies.map( 
-          (chapter , index) => <BookList title={chapter.title} key={index} />
+          (chapter , index) => <BookList title={chapter.title} key={index} data={books} />
         )}
     </Container>
   );

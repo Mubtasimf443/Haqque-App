@@ -8,7 +8,7 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/main_image.jpg",
+      "image": "./assets/m.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,13 +17,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/main_image.jpg",
+        "foregroundImage": "./assets/m.jpg",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/main_image.jpg"
+      "favicon": "./assets/m.jpg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "52250bc4-93f2-429c-9274-cee1d5e1f4f8"
+      }
     }
   }
 }
