@@ -1,67 +1,65 @@
 
 /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ ﷺ InshaAllah */
 
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, FontAwesome5, MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons';
 import { FC } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
+import { Card } from 'react-native-paper';
+
 
 interface Props {
   title: string;
-  views: string
-
+  views: string;
+  writter: string
+  imageUri?: string
+  read: number
 }
-const Book: FC<Props> = ({ title, views }) => {
+const Book: FC<Props> = ({ title, views, writter, imageUri, read }) => {
 
   return (
-    <View style={styles.container}>
-      <Image 
-      source={{ uri:"https://img.icons8.com/papercut/100/book.png"}} 
-      style={{width : 180, height : 300 ,objectFit : "contain" }}
+    <Card style={styles.container}>
+      <Card.Cover
+        source={{ uri: imageUri || "https://img.icons8.com/ios/100/book--v2.png" }}
+        
       />
-      <ScrollView>
-        <View >
-          <View>
-            <Text>{title}</Text>
-          </View>
-          <View>
-            <FontAwesome name={'street-view'} size={25} />
-            <Text>{views}</Text>
-          </View>
-        </View>
-        <View>
-          <TouchableOpacity>
-            <Text>  Love</Text>
-          
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text>  Download</Text>  
-          </TouchableOpacity>
-          <View>
-            <Text>
-              Read
-            </Text>
+      <Card.Title
+        title={title}
+        subtitle={writter}
+      />
+      <Card.Content>
+        <View style={{...styles.between }}>
 
-          </View>
+          <Text style={styles.txt}>
+            <MaterialCommunityIcons size={21} name={'bookmark-check'} />
+            {read}
+          </Text>
+          <TouchableOpacity>
+            <MaterialIcons size={21} name={'download'} />
+          </TouchableOpacity>
+
         </View>
-      </ScrollView>
-    </View>
+        <View></View>
+      </Card.Content>
+    </Card>
   )
 }
-export default Book;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor : "#ffffff",
-    color: 'black',
-    width: 360,
-    height: 300,
+    backgroundColor: "#ffffff",
+    maxWidth: 'auto',
+    color: "#000000"
+  },
+  txt : {
+    color : "Black",
+    fontSize : 20
+  },
+  between: {
     display: 'flex',
     flexDirection: "row",
-    flexWrap: "wrap"
-  },
-  img: {
-    width: 100,
-    height: "auto",
-
+    alignItems: 'center',
+    justifyContent: 'space-between'
   }
 })
+export default Book;
+

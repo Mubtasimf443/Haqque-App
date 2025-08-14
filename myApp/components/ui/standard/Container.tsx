@@ -21,6 +21,7 @@ const styles= StyleSheet.create({
     display : 'flex',
     flexDirection :'row',
     flexWrap : "wrap",
+    columnGap : 20,
     width : Dimensions.get('screen').width,
     height : 'auto',
     padding : 10

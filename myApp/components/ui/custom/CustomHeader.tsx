@@ -10,7 +10,7 @@ const CustomHeader: FC<PropsWithChildren<Props>> = (p) => {
   
   return (
     <View style={styles.container}>
-      
+      <Text style={styles.text}> لَا إِلَٰهَ إِلَّا ٱللَّٰهُ مُحَمَّدٌ رَسُولُ ٱللَّٰهِﷺ </Text>
     </View>
   );
 }
@@ -21,11 +21,17 @@ const styles = StyleSheet.create({
 
   container: {
     width: Dimensions.get('screen').width,
-    height : 100,
+    height : 60,
     backgroundColor : "#006A0D",
     display : 'flex',
-    flexDirection : 'column',
+    flexDirection : 'row',
     justifyContent : "center",
-    alignItems : "center"
+    alignItems: 'center',
+    marginTop : 23
+    
+  },
+  text : {
+    color : '#ffffff',
+    fontSize : 25
   }
 })

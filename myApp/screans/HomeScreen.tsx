@@ -3,25 +3,49 @@
 import { View, Text, StyleSheet, Pressable, Button, TouchableOpacity } from 'react-native';
 import Container from '../components/ui/standard/Container';
 import Book from '../components/ui/standard/Book';
+import BookList from '../components/ui/custom/BookList';
 
 interface Props {
 
 }
 const HomeScreen = ({ }: Props) => {
-  let arr = [0,1,2,3,4,5,6,7,8,9]
+  const islamicStudies = [
+    {
+      title: "Quranic Studies",
+      description: "This involves learning to read and memorize the Quran (the holy book of Islam), understanding its historical context, and interpreting its verses (Tafsir)."
+    },
+    {
+      title: "Hadith Studies",
+      description: "This is the study of the sayings, actions, and approvals of Prophet Muhammad. The Hadith serves as a crucial source of guidance alongside the Quran."
+    },
+    {
+      title: "Fiqh",
+      description: "This field focuses on Islamic law, examining how legal rulings are derived from the Quran and Hadith to address all aspects of life, including worship, family matters, and financial transactions."
+    },
+    {
+      title: "Seerah",
+    },
+    {
+      title: "Islamic History and Civilization",
+    },
+    {
+      title: "Aqidah and Kalam",
+    }
+  ];
   return (
     <Container >
-      {
-        arr.map((el , key) =>(  <Book key={key} title={5445* Math.random()} views='34'/> ))
-      }
+       {
+        islamicStudies.map( 
+          (chapter , index) => <BookList title={chapter.title} key={index} />
+        )}
     </Container>
   );
 }
 
 export default HomeScreen
 const styles = StyleSheet.create({
-  Container : {
-   
-    justifyContent : 'center'
+  Container: {
+
+    justifyContent: 'center'
   }
 });

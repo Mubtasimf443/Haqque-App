@@ -14,6 +14,7 @@ import {
 import ExploreScreen from './screans/ExploreScreen';
 import CustomHeader from './components/ui/custom/CustomHeader';
 import { StatusBar } from 'react-native';
+import { PaperProvider } from 'react-native-paper';
 
 
 const Tabs = createBottomTabNavigator({
@@ -67,8 +68,10 @@ const Navigation = createStaticNavigation(rootStack)
 const App = () => {
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle={'default'}  />
-      <Navigation />
+      <StatusBar barStyle={'default'} />
+      <PaperProvider >
+        <Navigation />
+      </PaperProvider>
     </SafeAreaProvider>
   );
 }
