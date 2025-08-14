@@ -1,34 +1,67 @@
+
 /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ ﷺ InshaAllah */
 
-import { Image } from 'expo-image';
-import React from 'react'
-import { Pressable, ScrollView, View , Text, StyleSheet} from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
+import { FC } from 'react';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 
-const Book = () => {
+interface Props {
+  title: string;
+  views: string
+
+}
+const Book: FC<Props> = ({ title, views }) => {
+
   return (
-    <ScrollView style={styles.card}>
-      <View style={styles.cardHeader}>
-        <Image  />
-      </View>
-      <View>
-        <Pressable><Text>Like</Text></Pressable>
-        <Pressable><Text>Love</Text></Pressable>
-        <Pressable><Text>Dislike</Text></Pressable>
-        <Pressable><Text>Download</Text></Pressable>
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <Image 
+      source={{ uri:"https://img.icons8.com/papercut/100/book.png"}} 
+      style={{width : 180, height : 300 ,objectFit : "contain" }}
+      />
+      <ScrollView>
+        <View >
+          <View>
+            <Text>{title}</Text>
+          </View>
+          <View>
+            <FontAwesome name={'street-view'} size={25} />
+            <Text>{views}</Text>
+          </View>
+        </View>
+        <View>
+          <TouchableOpacity>
+            <Text>  Love</Text>
+          
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text>  Download</Text>  
+          </TouchableOpacity>
+          <View>
+            <Text>
+              Read
+            </Text>
+
+          </View>
+        </View>
+      </ScrollView>
+    </View>
   )
 }
-
 export default Book;
 
 const styles = StyleSheet.create({
-  card : {
-    width : 150,
-    height : "auto"
+  container: {
+    backgroundColor : "#ffffff",
+    color: 'black',
+    width: 360,
+    height: 300,
+    display: 'flex',
+    flexDirection: "row",
+    flexWrap: "wrap"
   },
-  cardHeader : {
-    width : 150,
-    
+  img: {
+    width: 100,
+    height: "auto",
+
   }
 })

@@ -6,10 +6,11 @@ import { View, Text, StyleSheet, Dimensions, Image } from 'react-native';
 interface Props {
 
 }
-const CustomHeader: FC<PropsWithChildren<Props>> = ({ }: Props) => {
+const CustomHeader: FC<PropsWithChildren<Props>> = (p) => {
+  
   return (
     <View style={styles.container}>
-      <Image source={require('../../../assets/m.jpg')} style={styles.img} />
+      
     </View>
   );
 }
@@ -17,11 +18,14 @@ const CustomHeader: FC<PropsWithChildren<Props>> = ({ }: Props) => {
 export default CustomHeader;
 
 const styles = StyleSheet.create({
-  img: {
-    width: 50,
-    height : 50
-  },
+
   container: {
-    width: Dimensions.get('screen').width
+    width: Dimensions.get('screen').width,
+    height : 100,
+    backgroundColor : "#006A0D",
+    display : 'flex',
+    flexDirection : 'column',
+    justifyContent : "center",
+    alignItems : "center"
   }
 })

@@ -1,7 +1,7 @@
 /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ ﷺ InshaAllah */
 
 import React, { FC } from 'react';
-import { View , Text , StyleSheet, Dimensions } from 'react-native';
+import { View , Text , StyleSheet, Dimensions, ScrollView } from 'react-native';
 
 interface Props {
 
@@ -9,15 +9,18 @@ interface Props {
 const Container: FC<React.PropsWithChildren<Props>> = (p) => {
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
     {p.children}
-    </View>
+    </ScrollView>
 )
 }
 export default Container;
 
 const styles= StyleSheet.create({
    container : {
+    display : 'flex',
+    flexDirection :'row',
+    flexWrap : "wrap",
     width : Dimensions.get('screen').width,
     height : 'auto',
     padding : 10
